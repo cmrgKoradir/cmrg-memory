@@ -9,7 +9,7 @@ import Header from './components/layout/Header';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename = {process.env.PUBLIC_URL}>
       <Route path = "/" component={Header} />
       <Route exact path="/" component= {App} />
       <Route path="/about" component = {About} />
