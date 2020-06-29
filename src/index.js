@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
+
+import App from './App';
+import About from './components/pages/About'
+import Header from './components/layout/Header';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Route path = "/" component={Header} />
+      <Route exact path="/" component= {App} />
+      <Route path="/about" component = {About} />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
