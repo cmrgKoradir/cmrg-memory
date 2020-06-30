@@ -47,7 +47,7 @@
 }
 
 /*fit content to card size*/
-.card .back :first-child {
+.card .back > :first-child {
     height: 100%;
     width: 100%;
 }
