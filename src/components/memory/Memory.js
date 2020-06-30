@@ -12,11 +12,11 @@ const Memory = () => {
     )
 }
 
-const createCards = (cardInfo) => cardInfo.map((info) => (
+const createCards = (cardInfo) => cardInfo.map((info, index) => (
     Array.of(
-        <img src={info.image} alt="" style={memoryImageStyle}/>,
+        <img key={'card'+index+'_image'} src={info.image} alt="" style={memoryImageStyle}/>,
 
-        <div style={memoryTextStyle}>
+        <div key={'card'+index+'_text'} style={memoryTextStyle}>
             <strong>{info.name}</strong>
             {info.nickName && <span>"{info.nickName}"</span>}
             <span>{info.position}</span>

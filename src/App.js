@@ -6,7 +6,7 @@ import Memory from './components/memory/Memory'
 const App = () => {
   const [, setCardInfo] = useContext(CardInfoContext)
 
-  useEffect(() => fetchData(setCardInfo), [])
+  useEffect(() => fetchData(setCardInfo), [setCardInfo])
   
   return (
     <>
