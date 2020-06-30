@@ -1,34 +1,17 @@
 import React, { useContext, useEffect } from 'react'
 import './App.css'
 import { CardInfoContext } from './Store'
+import Memory from './components/memory/Memory'
 
 const App = () => {
-  const [cardInfo, setCardInfo] = useContext(CardInfoContext)
+  const [, setCardInfo] = useContext(CardInfoContext)
 
-  useEffect(() => {
-    fetchData(setCardInfo)
-  }, [])
-
-  useEffect(() => {
-    const app = document.querySelector('.app')
-    if(!cardInfo) return
-
-    for(const child of app.children){
-      app.removeChild(child)
-    }
-
-    cardInfo.forEach( info => {
-      const img = document.createElement('img')
-      img.src = info.image
-      app.appendChild(img)
-    })
-
-  }, [cardInfo])
+  useEffect(() => fetchData(setCardInfo), [])
   
   return (
     <>
       <div className="app">
-        <h1 className="loadingNotice">Fetching data...</h1>
+        <Memory />
       </div>
     </>
 )};
@@ -49,9 +32,7 @@ function fetchData(setCardInfo){
         }))
       return cardInfo
     })
-    .then(cardInfo =>{
-      setCardInfo(cardInfo)
-    })
+    .then(cardInfo => setCardInfo(cardInfo))
 }
 
 export default App;
