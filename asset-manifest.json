@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/cmrg-memory/static/css/main.6b211dc6.chunk.css",
-    "main.js": "/cmrg-memory/static/js/main.c73a3c58.chunk.js",
-    "main.js.map": "/cmrg-memory/static/js/main.c73a3c58.chunk.js.map",
+    "main.js": "/cmrg-memory/static/js/main.0f6a3846.chunk.js",
+    "main.js.map": "/cmrg-memory/static/js/main.0f6a3846.chunk.js.map",
     "runtime-main.js": "/cmrg-memory/static/js/runtime-main.6d75802c.js",
     "runtime-main.js.map": "/cmrg-memory/static/js/runtime-main.6d75802c.js.map",
-    "static/js/2.3ec25161.chunk.js": "/cmrg-memory/static/js/2.3ec25161.chunk.js",
-    "static/js/2.3ec25161.chunk.js.map": "/cmrg-memory/static/js/2.3ec25161.chunk.js.map",
+    "static/js/2.c2738061.chunk.js": "/cmrg-memory/static/js/2.c2738061.chunk.js",
+    "static/js/2.c2738061.chunk.js.map": "/cmrg-memory/static/js/2.c2738061.chunk.js.map",
     "index.html": "/cmrg-memory/index.html",
-    "precache-manifest.e029309b0a1bf46988db28927119d94c.js": "/cmrg-memory/precache-manifest.e029309b0a1bf46988db28927119d94c.js",
+    "precache-manifest.3966ff27b41ee33e84c024bd040b91d6.js": "/cmrg-memory/precache-manifest.3966ff27b41ee33e84c024bd040b91d6.js",
     "service-worker.js": "/cmrg-memory/service-worker.js",
     "static/css/main.6b211dc6.chunk.css.map": "/cmrg-memory/static/css/main.6b211dc6.chunk.css.map",
-    "static/js/2.3ec25161.chunk.js.LICENSE.txt": "/cmrg-memory/static/js/2.3ec25161.chunk.js.LICENSE.txt"
+    "static/js/2.c2738061.chunk.js.LICENSE.txt": "/cmrg-memory/static/js/2.c2738061.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6d75802c.js",
-    "static/js/2.3ec25161.chunk.js",
+    "static/js/2.c2738061.chunk.js",
     "static/css/main.6b211dc6.chunk.css",
-    "static/js/main.c73a3c58.chunk.js"
+    "static/js/main.0f6a3846.chunk.js"
   ]
 }
