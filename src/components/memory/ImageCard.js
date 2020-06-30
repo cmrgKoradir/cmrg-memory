@@ -1,8 +1,11 @@
 import React from 'react'
+import Card from './Card'
 
 const ImageCard = (props) => {
     return (
-        <img src={props.info.image} alt="" ></img>
+        <Card>
+            <img src={props.info.image} alt="" />
+        </Card>
     )
 }
 
