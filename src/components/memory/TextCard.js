@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from './Card'
 
-const TextCard = ({id, info}) => {
+const TextCard = ({id, pairId, info}) => {
     return (
-        <Card id={id}>
+        <Card id={id} pairId={pairId}>
             <div style={memoryTextStyle}>
                 <strong>{info.name}</strong>
                 {info.nickName && <span>"{info.nickName}"</span>}

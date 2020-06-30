@@ -32,6 +32,7 @@ function fetchData(setCardInfo){
         }))
       return cardInfo
     })
+    .then(cardInfo => cardInfo.map((info, index) => ({id: index, ...info, })))
     .then(cardInfo => setCardInfo(cardInfo))
 }
 
