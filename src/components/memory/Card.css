@@ -19,8 +19,8 @@
     transform-style: preserve-3d;
 }
   
-/* Do an horizontal flip when you move the mouse over the flip box container */
-    .card:hover .content {
+/* Do an horizontal flip when you add the `flipped` class (e.g. on click) */
+    .card.flipped .content {
     transform: rotateY(180deg);
 }
   

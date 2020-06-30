@@ -15,12 +15,15 @@ const Memory = () => {
     )
 }
 
-const createCards = (cardInfo) => cardInfo.flatMap((info, index) => (
-    Array.of(
-        <ImageCard key={'card'+index+'_image'} info={info} />,
-        <TextCard key={'card'+index+'_text'} info={info} />
-    )
-))
+const createCards = (cardInfo) => cardInfo.flatMap((info, index) => {
+    const imageCardId = 'card'+index+'_image'
+    const textCardId = 'card' + index + '_text'
+    return (Array.of(
+        //note: `key` is not a `prop` so we have to pass the ID down as a seperatre property
+        <ImageCard key={imageCardId} id={imageCardId} info={info} />,
+        <TextCard key={textCardId} id={textCardId} info={info} />
+    ))
+})
 
 const memoryStyle = {
     width: '100%',

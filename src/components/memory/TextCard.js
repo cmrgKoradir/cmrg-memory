@@ -1,10 +1,9 @@
 import React from 'react'
 import Card from './Card'
 
-const TextCard = (props) => {
-    const info = props.info
+const TextCard = ({id, info}) => {
     return (
-        <Card>
+        <Card id={id}>
             <div style={memoryTextStyle}>
                 <strong>{info.name}</strong>
                 {info.nickName && <span>"{info.nickName}"</span>}

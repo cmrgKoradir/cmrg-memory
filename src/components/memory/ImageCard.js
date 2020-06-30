@@ -1,10 +1,10 @@
 import React from 'react'
 import Card from './Card'
 
-const ImageCard = (props) => {
+const ImageCard = ({id, info}) => {
     return (
-        <Card>
-            <img src={props.info.image} alt="" />
+        <Card id={id}>
+            <img src={info.image} alt="" />
         </Card>
     )
 }
