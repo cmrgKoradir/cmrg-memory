@@ -7,14 +7,22 @@ const Memory = () => {
     return (
         <div className="memory" style={memoryStyle}>
             {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
-            {cardInfo.map( info => createCards(info))}
+            {createCards(cardInfo)}
         </div>
     )
 }
 
-const createCards = (info) => (
-    <img src={info.image} alt="" style={memoryImageStyle}/>   
-)
+const createCards = (cardInfo) => cardInfo.map((info) => (
+    Array.of(
+        <img src={info.image} alt="" style={memoryImageStyle}/>,
+
+        <div style={memoryTextStyle}>
+            <strong>{info.name}</strong>
+            {info.nickName && <span>"{info.nickName}"</span>}
+            <span>{info.position}</span>
+        </div>
+    )
+))
 
 const memoryStyle = {
     width: '100%',
@@ -29,6 +37,13 @@ const memoryStyle = {
 
 const memoryImageStyle = {
     marginTop: '.75rem'
+}
+
+const memoryTextStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
 }
 
 export default Memory
