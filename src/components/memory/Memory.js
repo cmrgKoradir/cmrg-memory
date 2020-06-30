@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import { CardInfoContext } from './../../Store'
 
+import ImageCard from './ImageCard'
+import TextCard from './TextCard'
+
 const Memory = () => {
     const [cardInfo] = useContext(CardInfoContext)
 
@@ -12,15 +15,10 @@ const Memory = () => {
     )
 }
 
-const createCards = (cardInfo) => cardInfo.map((info, index) => (
+const createCards = (cardInfo) => cardInfo.flatMap((info, index) => (
     Array.of(
-        <img key={'card'+index+'_image'} src={info.image} alt="" style={memoryImageStyle}/>,
-
-        <div key={'card'+index+'_text'} style={memoryTextStyle}>
-            <strong>{info.name}</strong>
-            {info.nickName && <span>"{info.nickName}"</span>}
-            <span>{info.position}</span>
-        </div>
+        <ImageCard key={'card'+index+'_image'} info={info} />,
+        <TextCard key={'card'+index+'_text'} info={info} />
     )
 ))
 
@@ -32,17 +30,6 @@ const memoryStyle = {
     flexWrap: 'wrap',
     padding: '.25rem',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
-}
-
-const memoryImageStyle = {
-    marginTop: '.75rem'
-}
-
-const memoryTextStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center'
 }
 
