@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { CardInfoContext, CardSelectionContext } from './../../Store'
 
+import './Controls.css'
 import ImageCard from './ImageCard'
 import TextCard from './TextCard'
 
@@ -23,8 +24,9 @@ const Memory = () => {
     return (
         <>
             <div className="controls">
-                <input className="gameSizeSlider" type="range" min="2" max={cardInfo.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>
                 {availableCards.length > 1 && <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>}
+                <input className="gameSizeSlider" type="range" min="2" max={cardInfo.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>
+                <span className="gameSizeDisplay">People: {gameSize}</span>
             </div>
             <div className="memory" style={memoryStyle}>
                 {availableCards.length < 1 && <h1 className="loadingNotice">Fetching data...</h1>}

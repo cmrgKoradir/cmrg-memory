@@ -1,0 +1,35 @@
+.controls{
+    width: 100%;
+    padding-top: .2em;
+    padding-bottom: .2em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    
+    background: lightgrey
+}
+
+.controls > * {
+    margin-right: 1em;
+}
+
+.restartButton {
+    padding: .2em;
+    background-color: transparent;
+    border: solid tomato 1px;
+    border-radius: 15%;
+    background-color: transparent;
+    color: tomato;
+    cursor: pointer;
+}
+
+.restartButton:hover {
+    color: red;
+    border-color: red;
+}
+
+.gameSizeSlider {
+    cursor: pointer;
+}
