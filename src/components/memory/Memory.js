@@ -15,11 +15,22 @@ const Memory = () => {
     useEffect(() => setAvailableCards(createCards(cardInfo)),[cardInfo, setAvailableCards])
 
     return (
-        <div className="memory" style={memoryStyle}>
-            {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
-            {availableCards}
-        </div>
+        <>
+            <div className="controls">
+                <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>
+            </div>
+            <div className="memory" style={memoryStyle}>
+                {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
+                {availableCards}
+            </div>
+        </>
     )
+}
+
+const restartGame = (availableCards, setAvailableCards) => {
+    const cards = [...availableCards]
+    setAvailableCards([])
+    setTimeout(() => setAvailableCards(cards), 0)
 }
 
 const createCards = (cardInfo) => shuffle(cardInfo.flatMap((info) => {
