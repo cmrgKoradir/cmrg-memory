@@ -18,6 +18,8 @@ const flipCard = (uniqueCardSelector, currentSelection, setSelection) => {
     if(currentSelection.length >= 2) return
 
     const card = document.querySelector(uniqueCardSelector)
+    if(card.classList.contains("flipped")) return
+
     card.classList.add("flipped")
     setSelection([...currentSelection, card])
 }
