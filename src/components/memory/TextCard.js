@@ -5,9 +5,9 @@ const TextCard = ({id, pairId, info}) => {
     return (
         <Card id={id} pairId={pairId}>
             <div style={memoryTextStyle}>
-                <strong>{info.name}</strong>
-                {info.nickName && <span>"{info.nickName}"</span>}
-                <span>{info.position}</span>
+                <span style={nameStyle}>{info.name}</span>
+                {info.nickName && <span style={nickNameStyle}>"{info.nickName}"</span>}
+                <span style={positionStyle}>{info.position}</span>
             </div>
         </Card>
 )}
@@ -16,7 +16,18 @@ const memoryTextStyle = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'space-evenly',
+    padding: '.1em'
+}
+
+const nameStyle = {
+    fontWeight: 'bold'
+}
+
+const nickNameStyle = {
+}
+
+const positionStyle = {
 }
 
 export default TextCard

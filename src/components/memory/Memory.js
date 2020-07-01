@@ -85,7 +85,7 @@ const memoryStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     padding: '.25rem',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     alignItems: 'center'
 }
 
