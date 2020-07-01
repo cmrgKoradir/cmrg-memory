@@ -3,8 +3,8 @@
 /* The flip card container - set the width and height to whatever you want.*/
 .card {
     background-color: transparent;
-    width: 10rem;
-    height: 10rem;
+    width: 10em;
+    height: 10em;
     padding: .25rem;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
