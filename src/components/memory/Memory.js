@@ -82,11 +82,12 @@ const memoryStyle = {
     width: '100%',
     height: '100%',
 
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(8em, 1fr))',
+    gridAutoRows: '1fr',
+    gridGap: '.25rem',
     padding: '.25rem',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyItems: 'center'
 }
 
 export default Memory
