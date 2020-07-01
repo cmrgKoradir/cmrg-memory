@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { CardInfoContext, CardSelectionContext } from './../../Store'
 
 import ImageCard from './ImageCard'
@@ -11,15 +11,18 @@ const Memory = () => {
         checkSelection(cardSelection, setCardSelection)
     },[cardSelection, setCardSelection])
 
+    const [availableCards, setAvailableCards] = useState(createCards(cardInfo))
+    useEffect(() => setAvailableCards(createCards(cardInfo)),[cardInfo, setAvailableCards])
+
     return (
         <div className="memory" style={memoryStyle}>
             {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
-            {createCards(cardInfo)}
+            {availableCards}
         </div>
     )
 }
 
-const createCards = (cardInfo) => cardInfo.flatMap((info) => {
+const createCards = (cardInfo) => shuffle(cardInfo.flatMap((info) => {
     const id = info.id
     const imageCardId = `card${id}_image`
     const textCardId = `card${id}_text`
@@ -28,7 +31,21 @@ const createCards = (cardInfo) => cardInfo.flatMap((info) => {
         <ImageCard key={imageCardId} id={imageCardId} pairId={id} info={info} />,
         <TextCard key={textCardId} id={textCardId} pairId={id} info={info} />
     ))
-})
+}))
+
+const shuffle = (iterable) => {
+    const arr = Array.from(iterable)
+    
+    const n = arr.length - 1
+    for(const i of arr.keys()){
+        //fisher-yates: j random s.t. i <= j <= n
+        const j = Math.floor(Math.random() * (n - i + 1) + i)
+        const tmp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = tmp
+    }
+    return arr
+}
 
 const checkSelection = (currentSelection, setCardSelection) => {
     if(currentSelection.length < 2) return
