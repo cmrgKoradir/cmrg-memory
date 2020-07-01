@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CardInfoContext, CardSelectionContext } from './../../Store'
 
 import ImageCard from './ImageCard'
@@ -6,18 +6,15 @@ import TextCard from './TextCard'
 
 const Memory = () => {
     const [cardInfo] = useContext(CardInfoContext)
-    const [availableCards, setAvailableCards] = useState(cardInfo)
-    useEffect(() => setAvailableCards(cardInfo), [cardInfo, setAvailableCards])
-
     const [cardSelection, setCardSelection] = useContext(CardSelectionContext)
     useEffect(() => {
-        checkSelection(cardSelection, setCardSelection, availableCards, setAvailableCards)
-    },[cardSelection, setCardSelection, availableCards, setAvailableCards])
+        checkSelection(cardSelection, setCardSelection)
+    },[cardSelection, setCardSelection])
 
     return (
         <div className="memory" style={memoryStyle}>
             {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
-            {createCards(availableCards)}
+            {createCards(cardInfo)}
         </div>
     )
 }
@@ -33,23 +30,27 @@ const createCards = (cardInfo) => cardInfo.flatMap((info) => {
     ))
 })
 
-const checkSelection = (currentSelection, setCardSelection, availableCards, setAvailableCards) => {
+const checkSelection = (currentSelection, setCardSelection) => {
     if(currentSelection.length < 2) return
     if(currentSelection.length > 2) throw Error("Illegal State: More than two cards selected at a time")
 
-    const pairIdA = parseInt(currentSelection[0].getAttribute('pairid')) ?? false
-    if(!pairIdA) throw Error(`Expected ${currentSelection[0]} to have pairId but does not.`)
+    const pairIdA = parseInt(currentSelection[0].getAttribute('pairid')) ?? null
+    if(pairIdA == null) {
+        console.log(currentSelection)
+        throw Error(`Expected ${currentSelection[0]} to have pairId but does not.`)
+    }
 
-    const pairIdB = parseInt(currentSelection[1].getAttribute('pairid')) ?? false
-    if(!pairIdB) throw Error(`Expected ${currentSelection[1]} to have pairId but does not.`)
+    const pairIdB = parseInt(currentSelection[1].getAttribute('pairid')) ?? null
+    if(pairIdB == null){
+        console.log(currentSelection)
+        throw Error(`Expected ${currentSelection[1]} to have pairId but does not.`)
+    } 
 
     //the timeouts are necessary to allow the cards to fully flip and display for a while before the action happens
     if(pairIdA === pairIdB){
         setTimeout(() => {
             setCardSelection([])
-            setAvailableCards(availableCards.filter(card => {
-                return card.id !== pairIdA
-            }))
+            currentSelection.forEach(card => card.classList.add("hidden"))
         },1200)
 
     }else {
