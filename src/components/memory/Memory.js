@@ -11,16 +11,18 @@ const Memory = () => {
         checkSelection(cardSelection, setCardSelection)
     },[cardSelection, setCardSelection])
 
+    const [gameSize, setGameSize] = useState(2)
     const [availableCards, setAvailableCards] = useState(createCards(cardInfo))
-    useEffect(() => setAvailableCards(createCards(cardInfo)),[cardInfo, setAvailableCards])
+    useEffect(() => setAvailableCards(createCards(cardInfo, gameSize)),[cardInfo, gameSize, setAvailableCards])
 
     return (
         <>
             <div className="controls">
+                {availableCards.length > 1 && <input className="gameSizeSlider" type="range" min="2" max={availableCards.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>}
                 <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>
             </div>
             <div className="memory" style={memoryStyle}>
-                {!cardInfo && <h1 className="loadingNotice">Fetching data...</h1>}
+                {availableCards.length < 1 && <h1 className="loadingNotice">Fetching data...</h1>}
                 {availableCards}
             </div>
         </>
@@ -33,16 +35,19 @@ const restartGame = (availableCards, setAvailableCards) => {
     setTimeout(() => setAvailableCards(cards), 0)
 }
 
-const createCards = (cardInfo) => shuffle(cardInfo.flatMap((info) => {
-    const id = info.id
-    const imageCardId = `card${id}_image`
-    const textCardId = `card${id}_text`
-    return (Array.of(
-        //note: `key` is not a `prop` so we have to pass the ID down as a seperatre property
-        <ImageCard key={imageCardId} id={imageCardId} pairId={id} info={info} />,
-        <TextCard key={textCardId} id={textCardId} pairId={id} info={info} />
-    ))
-}))
+const createCards = (cardInfo, gameSize) => shuffle( // shuffle all created cards
+    shuffle(cardInfo).slice(0, gameSize) //select `gameSize` random people
+    .flatMap((info) => { //create an Image and a Text card for each
+        const id = info.id
+        const imageCardId = `card${id}_image`
+        const textCardId = `card${id}_text`
+        return (Array.of(
+            //note: `key` is not a `prop` so we have to pass the ID down as a seperatre property
+            <ImageCard key={imageCardId} id={imageCardId} pairId={id} info={info} />,
+            <TextCard key={textCardId} id={textCardId} pairId={id} info={info} />
+        ))
+    })
+)
 
 const shuffle = (iterable) => {
     const arr = Array.from(iterable)
