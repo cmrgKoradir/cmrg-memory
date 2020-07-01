@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "155457de3dbd182ff39ed1025c82e54c",
+    "revision": "0887b8c1ba28dcbcfc5b27e1bb0ad64a",
     "url": "/cmrg-memory/index.html"
   },
   {
-    "revision": "e9883ad8e821ab8607f7",
+    "revision": "a193b81a7be240779115",
     "url": "/cmrg-memory/static/css/main.fe56c317.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cmrg-memory/static/js/2.de1b5fb9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e9883ad8e821ab8607f7",
-    "url": "/cmrg-memory/static/js/main.f8cad595.chunk.js"
+    "revision": "a193b81a7be240779115",
+    "url": "/cmrg-memory/static/js/main.0f5eb8b3.chunk.js"
   },
   {
     "revision": "a180d619d92a4ed34475",
