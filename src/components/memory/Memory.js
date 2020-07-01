@@ -13,13 +13,18 @@ const Memory = () => {
 
     const [gameSize, setGameSize] = useState(2)
     const [availableCards, setAvailableCards] = useState(createCards(cardInfo))
-    useEffect(() => setAvailableCards(createCards(cardInfo, gameSize)),[cardInfo, gameSize, setAvailableCards])
+    useEffect(() => {
+        setAvailableCards([])
+        setTimeout(() => {
+            setAvailableCards(createCards(cardInfo, gameSize))
+        }, 0);
+    },[cardInfo, gameSize, setAvailableCards])
 
     return (
         <>
             <div className="controls">
-                {availableCards.length > 1 && <input className="gameSizeSlider" type="range" min="2" max={availableCards.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>}
-                <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>
+                <input className="gameSizeSlider" type="range" min="2" max={cardInfo.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>
+                {availableCards.length > 1 && <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>}
             </div>
             <div className="memory" style={memoryStyle}>
                 {availableCards.length < 1 && <h1 className="loadingNotice">Fetching data...</h1>}
