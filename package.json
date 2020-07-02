@@ -16,7 +16,9 @@
   "homepage": "https://cmrgKoradir.github.io/cmrg-memory",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build-sw",
+    "build-sw" : "workbox injectManifest workbox-config.js && workbox copyLibraries build/",
+    "start-sw": "npm run build-sw &&  http-server build/ -c 0 --path \"cmrg-memory\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build"
