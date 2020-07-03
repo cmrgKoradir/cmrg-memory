@@ -1,0 +1,58 @@
+/**Adapted from https://www.w3schools.com/howto/howto_css_flip_card.asp*/
+
+/* The flip card container - set the width and height to whatever you want.*/
+.card {
+    background-color: transparent;
+    height: 8em;
+    width: 8em;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+  
+/* This container is needed to position the front and back side */
+.card .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 2.5vh;
+    overflow-wrap: break-word;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+/* Do an horizontal flip when you add the `flipped` class (e.g. on click) */
+    .card.flipped .content {
+    transform: rotateY(180deg);
+}
+  
+/* Position the front and back side */
+.card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+  
+/* Style the front side (fallback if image is missing) */
+.card .front {
+    background-color: #bbb;
+    color: black;
+}
+  
+/* Style the back side */
+.card .back{
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/*fit content to card size*/
+.card .back > :first-child {
+    height: 100%;
+    width: 100%;
+}
+
+.card.hidden {
+    visibility: hidden;
+}
