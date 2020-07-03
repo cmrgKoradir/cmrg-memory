@@ -24,7 +24,7 @@ const Memory = () => {
     return (
         <>
             <div className="controls">
-                {availableCards.length > 1 && <button className="restartButton" onClick={() => restartGame(availableCards, setAvailableCards)}>Restart</button>}
+                {availableCards.length > 1 && <button className="restartButton" onClick={() => restartGame(cardInfo, gameSize, setAvailableCards)}>Restart</button>}
                 <input className="gameSizeSlider" type="range" min="2" max={cardInfo.length} defaultValue={gameSize} onChange={(e) => setGameSize(e.target.value)}/>
                 <span className="gameSizeDisplay">People: {gameSize}</span>
             </div>
@@ -36,10 +36,9 @@ const Memory = () => {
     )
 }
 
-const restartGame = (availableCards, setAvailableCards) => {
-    const cards = [...availableCards]
+const restartGame = (cardInfo, gameSize, setAvailableCards) => {
     setAvailableCards([])
-    setTimeout(() => setAvailableCards(cards), 0)
+    setTimeout(() => setAvailableCards(createCards(cardInfo, gameSize)), 0)
 }
 
 const createCards = (cardInfo, gameSize) => shuffle( // shuffle all created cards
