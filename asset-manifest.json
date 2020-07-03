@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cmrg-memory/static/css/main.c868c7e9.chunk.css",
-    "main.js": "/cmrg-memory/static/js/main.801ee0bb.chunk.js",
-    "main.js.map": "/cmrg-memory/static/js/main.801ee0bb.chunk.js.map",
+    "main.js": "/cmrg-memory/static/js/main.09b6f206.chunk.js",
+    "main.js.map": "/cmrg-memory/static/js/main.09b6f206.chunk.js.map",
     "runtime-main.js": "/cmrg-memory/static/js/runtime-main.6d75802c.js",
     "runtime-main.js.map": "/cmrg-memory/static/js/runtime-main.6d75802c.js.map",
     "static/js/2.9aae4d60.chunk.js": "/cmrg-memory/static/js/2.9aae4d60.chunk.js",
     "static/js/2.9aae4d60.chunk.js.map": "/cmrg-memory/static/js/2.9aae4d60.chunk.js.map",
     "index.html": "/cmrg-memory/index.html",
-    "precache-manifest.8a230a02143203bd0c7fab53d5c0af40.js": "/cmrg-memory/precache-manifest.8a230a02143203bd0c7fab53d5c0af40.js",
+    "precache-manifest.ddcaa106aa6efaf87e86736bd173b6e0.js": "/cmrg-memory/precache-manifest.ddcaa106aa6efaf87e86736bd173b6e0.js",
     "service-worker.js": "/cmrg-memory/service-worker.js",
     "static/css/main.c868c7e9.chunk.css.map": "/cmrg-memory/static/css/main.c868c7e9.chunk.css.map",
     "static/js/2.9aae4d60.chunk.js.LICENSE.txt": "/cmrg-memory/static/js/2.9aae4d60.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6d75802c.js",
     "static/js/2.9aae4d60.chunk.js",
     "static/css/main.c868c7e9.chunk.css",
-    "static/js/main.801ee0bb.chunk.js"
+    "static/js/main.09b6f206.chunk.js"
   ]
 }
