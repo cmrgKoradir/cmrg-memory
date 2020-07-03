@@ -4,7 +4,7 @@ import Card from './Card'
 const TextCard = ({id, pairId, info}) => {
     return (
         <Card id={id} pairId={pairId}>
-            <div style={memoryTextStyle}>
+            <div className="textCardContent" style={memoryTextStyle}>
                 <span style={nameStyle}>{info.name}</span>
                 {info.nickName && <span style={nickNameStyle}>"{info.nickName}"</span>}
                 <span style={positionStyle}>{info.position}</span>

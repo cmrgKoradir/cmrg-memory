@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import {} from '../../lib/fittext'
 import { CardInfoContext, CardSelectionContext } from './../../Store'
 
 import './Controls.css'
@@ -18,6 +19,8 @@ const Memory = () => {
         setAvailableCards([])
         setTimeout(() => {
             setAvailableCards(createCards(cardInfo, gameSize))
+            console.log(document.querySelectorAll('.textCardContent'))
+            setTimeout(() => window.fitText(Array.from(document.querySelectorAll('.textCardContent'))), 0);
         }, 0);
     },[cardInfo, gameSize, setAvailableCards])
 
