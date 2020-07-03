@@ -29,8 +29,19 @@ function fetchData(setCardInfo){
           name: portrait.querySelector('.intro strong').innerText,
           nickName: portrait.querySelector('.intro p')?.innerText,
           position: portrait.querySelector('.role').innerText,
-          image: portrait.querySelector('.imageSlider img').src.replace(window.location.host,"www.comerge.net")
+          image: portrait.querySelector('.imageSlider img').src.replace(window.location.host,"cors-anywhere.herokuapp.com/www.comerge.net")
         }))
+      return cardInfo
+    })
+    .then(cardInfo => { //fetch all images s.t. they get cached 
+      cardInfo.forEach(info => {
+        const img = document.createElement('img')
+        img.crossOrigin = 'anonymous'
+        img.src = info.image
+        img.style.width = '1px'
+        document.body.appendChild(img)
+        setTimeout(() => document.body.removeChild(img),0)
+      })
       return cardInfo
     })
     .then(cardInfo => cardInfo.map((info, index) => ({id: index, ...info, })))

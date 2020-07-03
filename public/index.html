@@ -32,9 +32,12 @@
     <script>
       const isProduction = ('%NODE_ENV%' === 'production');
     
-      //only register the service worker on PROD and if the browser supports it
+      //only try to register the service worker if the browser supports it
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
       }
     </script>
   </body>
